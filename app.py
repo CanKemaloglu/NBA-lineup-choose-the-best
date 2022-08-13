@@ -31,7 +31,12 @@ players = st.multiselect(
 df_lineup = df_team[df_team['players_list'].apply(lambda x: set(x) == set(players))]
 
 df_important = df_lineup[['MIN', 'PLUS_MINUS', 'FG_PCT', 'FG3_PCT']]
-st.caption('MIN Minutes Played')
+st.caption('MIN:  Minutes Played')
+st.caption('PLUS_MINUS:  Plus-Minus, a.k.a. +/-, simply keeps track of the net changes in the score when a given player is either on or off the court.')
+st.caption('FG_PCT:  Field goal percentage is used to measure how well a player or team shoots the ball during a game.')
+st.caption('FG3_PCT:  The percentage of field goals attempted by a player or team that are 3 pointers')
+
+
 
 st.dataframe(df_important)
 
