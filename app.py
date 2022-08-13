@@ -31,6 +31,7 @@ players = st.multiselect(
 df_lineup = df_team[df_team['players_list'].apply(lambda x: set(x) == set(players))]
 
 df_important = df_lineup[['MIN', 'PLUS_MINUS', 'FG_PCT', 'FG3_PCT']]
+st.caption('MIN Minutes Played')
 
 st.dataframe(df_important)
 
