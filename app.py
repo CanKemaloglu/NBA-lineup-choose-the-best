@@ -8,7 +8,7 @@ df = pd.read_csv('NBALineup2021.csv')
 
 # Title for app
 st.set_page_config(layout="wide")
-st.title('NBA Lineup Analysis Tool ')
+st.title('NBA Takımları En iyi İlk 5 Analiz Aracı ')
 
 # User chooses team
 team = st.selectbox(
