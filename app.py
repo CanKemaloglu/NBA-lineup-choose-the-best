@@ -29,13 +29,13 @@ players = st.multiselect(
     roster,
     roster[0:5])
 
-col1, col2 = st.columns(2)
-with col1:
+col5, col6 = st.columns(2)
+with col5:
     team = st.selectbox(
         'Takım Seçin:',
         df['team'].unique())
 
-with col2:
+with col6:
     players = st.multiselect(
         'Oyuncu Seçin',
         roster,
