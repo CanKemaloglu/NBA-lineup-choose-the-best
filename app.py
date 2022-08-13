@@ -47,7 +47,7 @@ st.caption('FG3_PCT:  The percentage of field goals attempted by a player or tea
 
 st.dataframe(df_important)
 
-if st.button('İlk 5 i oluştur'):
+if st.button('İlk 5 i oluştur !'):
 
     col1, col2, col3, col4 = st.columns(4)
 
