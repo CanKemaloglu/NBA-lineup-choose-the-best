@@ -18,32 +18,28 @@ team = st.selectbox(
 
 # Get just the selected team
 df_team = df[df['team'] == team].reset_index(drop=True)
+
 # Get players on roster
 df_team['players_list'] = df_team['players_list'].str.replace(r"[\"\' \[\]]", '').str.split(',')
 duplicate_roster = df_team['players_list'].apply(pd.Series).stack()
 roster = duplicate_roster.unique()
 
-
+# Player Select
 players = st.multiselect(
     'Oyuncu Seçin',
     roster,
     roster[0:5])
 
-
-if st.button('Say hello'):
-     st.write('Why hello there')
-else:
-     st.write('Goodbye')
 # Find the right line up
 df_lineup = df_team[df_team['players_list'].apply(lambda x: set(x) == set(players))]
 
-df_important = df_lineup[['MIN', 'PLUS_MINUS', 'FG_PCT', 'FG3_PCT']]
+
 st.caption('MIN:  Minutes Played')
 st.caption('PLUS_MINUS:  Plus-Minus, a.k.a. +/-, simply keeps track of the net changes in the score when a given player is either on or off the court.')
 st.caption('FG_PCT:  Field goal percentage is used to measure how well a player or team shoots the ball during a game.')
 st.caption('FG3_PCT:  The percentage of field goals attempted by a player or team that are 3 pointers')
 
-
+df_important = df_lineup[['MIN', 'PLUS_MINUS', 'FG_PCT', 'FG3_PCT']]
 
 st.dataframe(df_important)
 
@@ -54,7 +50,7 @@ if st.button('İlk 5 i oluştur !'):
     with col1:
         fig_min = px.histogram(df_team, x="MIN")
         fig_min.add_vline(x=df_important['MIN'].values[0], line_color='red')
-        st.plotly_chart(fig_min, use_container_width=True)
+        st.altair_chart(fig_min, use_container_width=True)
 
     with col2:
         fig_2 = px.histogram(df_team, x="PLUS_MINUS")
