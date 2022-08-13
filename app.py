@@ -41,9 +41,10 @@ with col2:
         roster,
         roster[0:5])
 
+
 if st.button('Say hello'):
      st.write('Why hello there')
- else:
+else:
      st.write('Goodbye')
 # Find the right line up
 df_lineup = df_team[df_team['players_list'].apply(lambda x: set(x) == set(players))]
