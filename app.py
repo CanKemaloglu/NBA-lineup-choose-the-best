@@ -29,18 +29,6 @@ players = st.multiselect(
     roster,
     roster[0:5])
 
-col5, col6 = st.columns(2)
-with col5:
-    team = st.selectbox(
-        'Takım Seçin:',
-        df['team'].unique())
-
-with col6:
-    players = st.multiselect(
-        'Oyuncu Seçin',
-        roster,
-        roster[0:5])
-
 
 if st.button('Say hello'):
      st.write('Why hello there')
