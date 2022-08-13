@@ -23,11 +23,28 @@ df_team['players_list'] = df_team['players_list'].str.replace(r"[\"\' \[\]]", ''
 duplicate_roster = df_team['players_list'].apply(pd.Series).stack()
 roster = duplicate_roster.unique()
 
+
 players = st.multiselect(
     'Oyuncu Seçin',
     roster,
     roster[0:5])
 
+col1, col2 = st.columns(2)
+with col1:
+    team = st.selectbox(
+        'Takım Seçin:',
+        df['team'].unique())
+
+with col2:
+    players = st.multiselect(
+        'Oyuncu Seçin',
+        roster,
+        roster[0:5])
+
+if st.button('Say hello'):
+     st.write('Why hello there')
+ else:
+     st.write('Goodbye')
 # Find the right line up
 df_lineup = df_team[df_team['players_list'].apply(lambda x: set(x) == set(players))]
 
