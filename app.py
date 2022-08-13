@@ -8,6 +8,7 @@ df = pd.read_csv('NBALineup2021.csv')
 
 # Title for app
 st.set_page_config(layout="wide")
+st.image("https://seeklogo.com/images/N/nba-logo-0895F6D8B8-seeklogo.com.png")
 st.title('NBA Takımları En iyi İlk 5 Analiz Aracı ')
 
 # User chooses team
