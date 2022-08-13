@@ -50,7 +50,7 @@ if st.button('İlk 5 i oluştur !'):
     with col1:
         fig_min = px.histogram(df_team, x="MIN")
         fig_min.add_vline(x=df_important['MIN'].values[0], line_color='red')
-        st.altair_chart(fig_min, use_container_width=True)
+        st.plotly_chart(fig_min, use_container_width=True)
 
     with col2:
         fig_2 = px.histogram(df_team, x="PLUS_MINUS")
