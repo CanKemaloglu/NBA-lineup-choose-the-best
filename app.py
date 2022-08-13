@@ -12,7 +12,7 @@ st.title('NBA Takımları En iyi İlk 5 Analiz Aracı ')
 
 # User chooses team
 team = st.selectbox(
-    'Choose Your Team:',
+    'Takım Seçin:',
     df['team'].unique())
 
 # Get just the selected team
@@ -23,7 +23,7 @@ duplicate_roster = df_team['players_list'].apply(pd.Series).stack()
 roster = duplicate_roster.unique()
 
 players = st.multiselect(
-    'Select your players',
+    'Oyuncu Seçin',
     roster,
     roster[0:5])
 
